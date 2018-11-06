@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in
   
   def index
     @users = User.all.page(params[:id])
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new    
   end
-
+  
   def create
     @user = User.new(user_params)
     
